@@ -1,7 +1,7 @@
 Immutability:
 -an immutable object is an object whose state cannot be modified after it is created
--number and strings are immutable
--objects, arrays, functions, classes, sets and maps are mutable
+-number, booleans and strings are immutable (primitive types)
+-objects, arrays, functions, classes, sets and maps are mutable (reference types)
 
 Predictability:
 -do away with side-effects
