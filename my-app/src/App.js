@@ -1,22 +1,26 @@
-import React from 'react';
-import './App.css';
+import React, { useReducer } from "react";
+// components
+import ToDoList from "./components/ToDoList";
+import ToDoForm from "./components/ToDoForm";
+// reducer
+import { toDoReducer, initialState } from './reducers/toDoReducer';
+// styling
+import { Card, Header } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [state, dispatch] = useReducer(toDoReducer, initialState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="MainContent">
+      <Card>
+        <Card.Content>
+          <Header align="center">To Do List:</Header>
+          <ToDoForm dispatch={dispatch} />
+          <ToDoList state={state} dispatch={dispatch} />
+        </Card.Content>
+      </Card>
     </div>
   );
 }
